@@ -1,25 +1,28 @@
 package com.example.sumaih.p;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.sumaih.p.MyDBHandler.COLUMN_SERVICE;
-import static com.example.sumaih.p.MyDBHandler.TABLE_NAME;
-import static com.example.sumaih.p.MyDBHandler.COLUMN_USER;
 import static com.example.sumaih.p.MyDBHandler.COLUMN_PASSWORD;
+import static com.example.sumaih.p.MyDBHandler.COLUMN_SERVICE;
+import static com.example.sumaih.p.MyDBHandler.COLUMN_USER;
+import static com.example.sumaih.p.MyDBHandler.TABLE_NAME;
 
 public class Main2Activity extends AppCompatActivity {
     private TextView textView4, textView;
     private EditText editText, editText2;
-
+    private ImageView readImg, unReadImg;
 
 
 
@@ -35,6 +38,8 @@ public class Main2Activity extends AppCompatActivity {
         editText2 = (EditText) findViewById(R.id.editText2);
         textView4 = (TextView) findViewById(R.id.textView4);
         textView = (TextView) findViewById(R.id.textView);
+        readImg = (ImageView) findViewById(R.id.imageView45);
+        unReadImg = (ImageView) findViewById(R.id.lll);
         dbHandler = new MyDBHandler(getApplicationContext());
 
 
@@ -74,21 +79,21 @@ public class Main2Activity extends AppCompatActivity {
             editText.setText("");
             editText2.setText("");
             return; }
-            ContentValues rov = new ContentValues();
-            rov.put(COLUMN_SERVICE, service);
-            rov.put(COLUMN_USER, user);
-            rov.put(COLUMN_PASSWORD, password);
-            long rop = db.insert(TABLE_NAME, null, rov);
-            db.close();
-            String tstMsg;
-            tstMsg = "UserName: " + user + ", Password: " + password + " is inserted";
-            Toast.makeText(getApplicationContext(), tstMsg, Toast.LENGTH_LONG).show();
-            editText.setText("");
-            editText2.setText("");
+        ContentValues rov = new ContentValues();
+        rov.put(COLUMN_SERVICE, service);
+        rov.put(COLUMN_USER, user);
+        rov.put(COLUMN_PASSWORD, password);
+        long rop = db.insert(TABLE_NAME, null, rov);
+        db.close();
+        String tstMsg;
+        tstMsg = "UserName: " + user + ", Password: " + password + " is inserted";
+        Toast.makeText(getApplicationContext(), tstMsg, Toast.LENGTH_LONG).show();
+        editText.setText("");
+        editText2.setText("");
 
 
-            return;
-        }
+        return;
+    }
 
 
 
@@ -112,40 +117,40 @@ public class Main2Activity extends AppCompatActivity {
             return;
 
         }
-                   if(user.isEmpty() && !password.isEmpty()) {
-                       if (CheckIsDataAlreadyInDBorNot(service) == false) {
-                           Toast.makeText(getApplicationContext(), "no data to  Update ", Toast.LENGTH_LONG).show();
-                           return; }
+        if(user.isEmpty() && !password.isEmpty()) {
+            if (CheckIsDataAlreadyInDBorNot(service) == false) {
+                Toast.makeText(getApplicationContext(), "no data to  Update ", Toast.LENGTH_LONG).show();
+                return; }
             ContentValues cv = new ContentValues();
             cv.put(COLUMN_PASSWORD, password);
             String selection = COLUMN_SERVICE +" LIKE ?";
             String[] args={service};
             db.update(TABLE_NAME, cv, selection, args);
-                       Toast.makeText(getApplicationContext(),"PASSWORD Update ",Toast.LENGTH_LONG).show();
-                       editText2.setText("");
+            Toast.makeText(getApplicationContext(),"PASSWORD Update ",Toast.LENGTH_LONG).show();
+            editText2.setText("");
             return;
 
 
 
         }
 
-      else  if(!user.isEmpty() && password.isEmpty()) {
+        else  if(!user.isEmpty() && password.isEmpty()) {
 
-                       if (CheckIsDataAlreadyInDBorNot(service) == false) {
-                           Toast.makeText(getApplicationContext(), "no data to  Update ", Toast.LENGTH_LONG).show();
-                           return; }
+            if (CheckIsDataAlreadyInDBorNot(service) == false) {
+                Toast.makeText(getApplicationContext(), "no data to  Update ", Toast.LENGTH_LONG).show();
+                return; }
             ContentValues cv = new ContentValues();
             cv.put(COLUMN_USER, user);
             String selection = COLUMN_SERVICE +" LIKE ?";
             String[] args={service};
             db.update(TABLE_NAME, cv, selection, args);
-                       Toast.makeText(getApplicationContext(),"USER Update ",Toast.LENGTH_LONG).show();
-                       editText.setText("");
+            Toast.makeText(getApplicationContext(),"USER Update ",Toast.LENGTH_LONG).show();
+            editText.setText("");
             return;
         }
         else  if(!user.isEmpty() && !password.isEmpty()) {
             Toast.makeText(getApplicationContext(),"you can not update both ,try to add new ",Toast.LENGTH_LONG).show();
-                       return;
+            return;
         }
         db.close();
         return;
@@ -154,6 +159,9 @@ public class Main2Activity extends AppCompatActivity {
 
 
     public void Read(View V){
+        readImg.setVisibility(View.INVISIBLE);
+        unReadImg.setVisibility(View.VISIBLE);
+
         Intent intent = getIntent();
         String service = intent.getExtras().getString("ser");
 
@@ -179,23 +187,54 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public void delete(View view) {
-        db = dbHandler.getReadableDatabase();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+        builder.setTitle("Are you sure to delete ?");
+        builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                db = dbHandler.getReadableDatabase();
 
-        Intent intent = getIntent();
-        String service = intent.getExtras().getString("ser");
+                Intent intent = getIntent();
+                String service = intent.getExtras().getString("ser");
 
-        if (CheckIsDataAlreadyInDBorNot(service) == false) {
-            Toast.makeText(getApplicationContext(), "no data to delete.. ", Toast.LENGTH_LONG).show();
-            return; }
-        String selection = COLUMN_SERVICE +" LIKE ?";
-        String[] args={service};
-        db.delete(TABLE_NAME, selection ,args);
-        String tstMsg = "the "+service+" account is delete";
-        Toast.makeText(getApplicationContext(), tstMsg, Toast.LENGTH_LONG).show();
-        textView4.setText(" ");
-        textView.setText(" ");
-        editText2.setText("");
-        editText.setText("");
-        db.close();
+                if (CheckIsDataAlreadyInDBorNot(service) == false) {
+                    Toast.makeText(getApplicationContext(), "no data to delete.. ", Toast.LENGTH_LONG).show();
+                    return; }
+                String selection = COLUMN_SERVICE +" LIKE ?";
+                String[] args={service};
+                db.delete(TABLE_NAME, selection ,args);
+                String tstMsg = "the "+service+" account is delete";
+                Toast.makeText(getApplicationContext(), tstMsg, Toast.LENGTH_LONG).show();
+                textView4.setText(" ");
+                textView.setText(" ");
+                editText2.setText("");
+                editText.setText("");
+                db.close();
+                dbHandler.close();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
-}
+    public void unRead(View view){
+        readImg.setVisibility(View.VISIBLE);
+        unReadImg.setVisibility(View.INVISIBLE);
+        textView4.setVisibility(View.INVISIBLE);
+        textView.setVisibility(View.INVISIBLE);
+        editText.setVisibility(View.VISIBLE);
+        editText2.setVisibility(View.VISIBLE);
+
+    }
+    public void backTo(View view) {
+        Intent t = new Intent(this, MainActivity.class);
+        startActivity(t);
+        dbHandler.close();
+        finish();
+    }
+    }

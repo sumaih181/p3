@@ -19,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void whatsapp(View view) {
         String service  = "whatsapp";
-        Intent i = new Intent(this, Main2Activity.class);
+        Intent i = new Intent(this,Main2Activity.class);
         i.putExtra("ser", service);
         startActivity(i);
+
 
     }
 
@@ -132,25 +133,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void account4(View view) {
-        Intent i = new Intent(this, Main3Activity.class);
-        startActivity(i);
+   Intent ii = new Intent(this, Main3Activity.class);
+   startActivity(ii);
+
     }
 
     public void account3(View view) {
-        Intent i = new Intent(this, Main3Activity.class);
-        startActivity(i);
+        Intent ii = new Intent(this, Main3Activity.class);
+        startActivity(ii);
 
     }
 
     public void account2(View view) {
-        Intent i = new Intent(this, Main3Activity.class);
-        startActivity(i);
+        Intent ii = new Intent(this, Main3Activity.class);
+        startActivity(ii);
 
     }
 
     public void account1(View view) {
-        Intent i = new Intent(this, Main3Activity.class);
-        startActivity(i);
+        Intent ii = new Intent(this, Main3Activity.class);
+        startActivity(ii);
+
 
     }
 }

@@ -21,6 +21,7 @@ public class MyDBHandler extends SQLiteOpenHelper { //DB info
         super(context, DATABASE_NAME, null, DATABASE_VERSION); }
         @Override
     public void onCreate(SQLiteDatabase db) {
+
 // A SQL statement to create a table of three columns
         String sqlStmt = "CREATE TABLE " + TABLE_NAME + "(" + COLUMN_SERVICE +
                 " TEXT PRIMARY KEY  ," + COLUMN_USER + " TEXT," +
