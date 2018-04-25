@@ -1,123 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context="com.example.sumaih.p.Main2Activity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginTop="31dp"
-        android:ems="10"
-        android:hint="UserName"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="false"
-        android:singleLine="false"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="78dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="80dp"
+            >
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView28"
-        android:layout_toEndOf="@+id/imageView28"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="171dp" />
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignEnd="@+id/imageView31"
+                android:layout_alignTop="@+id/editText"
+                app:srcCompat="@drawable/usericon"
+                />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="15dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:hint="UserName"
+                android:inputType="textPersonName"
+                android:selectAllOnFocus="false"
+                android:singleLine="false"
+                tools:layout_editor_absoluteX="109dp"
+                tools:layout_editor_absoluteY="78dp"
+                android:layout_marginBottom="13dp"/>
 
-    <ImageView
-        android:id="@+id/imageView26"
-        android:layout_width="57dp"
-        android:layout_height="46dp"
-        android:layout_alignEnd="@+id/imageView31"
-        android:layout_alignTop="@+id/editText"
-        app:srcCompat="@drawable/img316131"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="78dp" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="77dp"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="sans-serif"
+                    android:paddingTop="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView28"
-        android:layout_width="65dp"
-        android:layout_height="54dp"
-        android:layout_alignStart="@+id/imageView31"
-        android:layout_below="@+id/imageView26"
-        android:layout_marginTop="35dp"
-        app:srcCompat="@drawable/img296674"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="163dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="203dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="100dp">
 
-    <ImageView
-        android:id="@+id/imageView31"
-        android:layout_width="56dp"
-        android:layout_height="95dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="22dp"
-        android:layout_marginStart="17dp"
-        app:srcCompat="@drawable/delete"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="442dp" />
+            <ImageView
+                android:id="@+id/imageView28"
+                android:layout_width="50dp"
+                android:layout_height="90dp"
+                android:layout_alignStart="@+id/imageView31"
+                android:layout_below="@+id/imageView26"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/passicon"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="163dp" />
 
-    <ImageView
-        android:id="@+id/imageView36"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/editText2"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="27dp"
-        app:srcCompat="@drawable/add"
-        tools:layout_editor_absoluteX="296dp"
-        tools:layout_editor_absoluteY="238dp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="53dp"
+                android:paddingLeft="15dp"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="118dp"
+                tools:layout_editor_absoluteY="171dp" />
 
-    <ImageView
-        android:id="@+id/imageView42"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignStart="@+id/imageView36"
-        android:layout_below="@+id/imageView36"
-        android:layout_marginTop="25dp"
-        app:srcCompat="@drawable/refresh"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="238dp" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="13dp"
+                    android:fontFamily="sans-serif"
+                    android:paddingLeft="70dp"
+                    android:paddingTop="53dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView45"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignEnd="@+id/imageView31"
-        android:layout_below="@+id/imageView42"
-        android:layout_marginTop="18dp"
-        app:srcCompat="@drawable/view"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="370dp" />
+    <LinearLayout
+        android:layout_width="416dp"
+        android:layout_height="621dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingTop="0dp">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:layout_alignBottom="@+id/imageView42"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="370dp" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView45"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_marginBottom="13dp"
-        android:text="TextView" />
+            <ImageView
+                android:id="@+id/imageView31"
+                android:layout_width="50dp"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:onClick="delete"
+                app:srcCompat="@drawable/deleteicon"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="442dp" />
+        </LinearLayout>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/lll"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:onClick="unRead"
+                app:srcCompat="@drawable/ko"
+                tools:layout_editor_absoluteX="90dp"
+                tools:layout_editor_absoluteY="370dp"
+                />
+
+            <ImageView
+                android:id="@+id/imageView45"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:onClick="Read"
+                app:srcCompat="@drawable/viewicon"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="370dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/imageView42"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:onClick="Update"
+                app:srcCompat="@drawable/updateicon"
+                tools:layout_editor_absoluteX="220dp"
+                tools:layout_editor_absoluteY="238dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/imageView36"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_alignParentEnd="true"
+                android:onClick="addButtonClicked"
+                app:srcCompat="@drawable/addicon"
+                tools:layout_editor_absoluteX="296dp"
+                tools:layout_editor_absoluteY="238dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

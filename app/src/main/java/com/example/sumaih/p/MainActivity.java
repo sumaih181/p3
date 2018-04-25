@@ -1,47 +1,156 @@
 package com.example.sumaih.p;
 
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView whatsapp ;
-    private ImageView uber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        whatsapp = (ImageView) findViewById(R.id.whatsapp);
-        uber = (ImageView) findViewById(R.id.uber);
-        whatsapp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String AppName = "Whatsapp";
-                Intent i = new Intent(getApplicationContext(),Main2Activity.class) ;
-                i.putExtra("appName",AppName);
-                startActivityForResult(i,1);
-            }
-        });
-        uber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String AppName = "Uber";
-                Intent i = new Intent(getApplicationContext(),Main2Activity.class) ;
-                i.putExtra("appName",AppName);
-                startActivityForResult(i,2);
-            }
-        });
+
     }
-    // ميثود لما يغير باسوورد معين ويرجع للصفحة الرئيسيه بيقول له انه تم تغيير الباسورد او الخ
-    protected void onActivityResult(int requstCode, int resultCode, Intent data){
-        if(resultCode == RESULT_OK && requstCode == 1){
-            String done = "Your Passowrd for "+ data.getStringExtra("AppName")+" set succusess ";
-            Toast.makeText(
-                    getApplicationContext(), done, Toast.LENGTH_SHORT
-            ).show();
-        }
+
+    public void whatsapp(View view) {
+        String service  = "whatsapp";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+
+    }
+
+    public void uber(View view) {
+
+        String service  = "uber";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void careem(View view) {
+        String service  = "careem";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void twitter(View view) {
+        String service  = "twitter";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void instagram(View view) {
+        String service  = "instagram";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void snapchat(View view) {
+        String service  = "snapchat";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void appStore(View view) {
+        String service  = "appStore";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void google(View view) {
+        String service  = "google";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void facebook(View view) {
+        String service  = "facebook";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void imdb(View view) {
+        String service  = "imdb";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void duolingo(View view) {
+        String service  = "duolingo";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void dropox(View view) {
+        String service  = "dropox";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void alinma(View view) {
+        String service  = "alinma";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void alrajhi(View view) {
+        String service  = "alrajhi";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void saib(View view) {
+        String service  = "saib";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void alahli(View view) {
+        String service  = "alahli";
+        Intent i = new Intent(this, Main2Activity.class);
+        i.putExtra("ser", service);
+        startActivity(i);
+    }
+
+    public void account4(View view) {
+        Intent i = new Intent(this, Main3Activity.class);
+        startActivity(i);
+    }
+
+    public void account3(View view) {
+        Intent i = new Intent(this, Main3Activity.class);
+        startActivity(i);
+
+    }
+
+    public void account2(View view) {
+        Intent i = new Intent(this, Main3Activity.class);
+        startActivity(i);
+
+    }
+
+    public void account1(View view) {
+        Intent i = new Intent(this, Main3Activity.class);
+        startActivity(i);
+
     }
 }
